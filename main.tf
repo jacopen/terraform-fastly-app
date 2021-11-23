@@ -54,3 +54,7 @@ resource "null_resource" "remove_and_upload_to_s3_ui" {
     command = "aws s3 sync ${path.module}/ui s3://${aws_s3_bucket.jacopen_fastly_ui.id}"
   }
 }
+
+output "jacopen_fastly_ui_website_endpoint" {
+    value = aws_s3_bucket.jacopen_fastly_ui.website_endpoint
+}
