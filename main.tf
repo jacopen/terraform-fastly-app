@@ -15,10 +15,6 @@ terraform {
   }
 }
 
-provider "fastly" {
-
-}
-
 provider "aws" {
   region = "ap-northeast-1"
 }
