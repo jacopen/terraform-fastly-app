@@ -49,6 +49,14 @@ resource "aws_s3_bucket" "jacopen_fastly_ui" {
   }
 }
 
+resource "aws_s3_bucket" "jacopen_fastly_ui_2" {
+  bucket = "jacopen-fastly-ui-2"
+  acl    = "public-read"
+  website {
+    index_document = "index.html"
+  }
+}
+
 resource "null_resource" "remove_and_upload_to_s3_ui" {
   provisioner "local-exec" {
     command = "aws s3 sync ${path.module}/ui s3://${aws_s3_bucket.jacopen_fastly_ui.id}"
@@ -56,6 +64,6 @@ resource "null_resource" "remove_and_upload_to_s3_ui" {
 }
 
 output "jacopen_fastly_ui_website_endpoint" {
-    value = aws_s3_bucket.jacopen_fastly_ui.website_endpoint
+    value = aws_s3_bucket.jacopen_fastly_ui_2.website_endpoint
 }
 
