@@ -19,7 +19,6 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
-
 resource "aws_s3_bucket_policy" "jacopen_fastly_ui" {
   bucket = aws_s3_bucket.jacopen_fastly_ui.id
 
@@ -39,7 +38,6 @@ resource "aws_s3_bucket_policy" "jacopen_fastly_ui" {
     ]
   })
 }
-
 
 resource "aws_s3_bucket" "jacopen_fastly_ui" {
   bucket = "jacopen-fastly-ui"
